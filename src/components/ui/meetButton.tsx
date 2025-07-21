@@ -1,6 +1,7 @@
 "use client"
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
+import { RainbowButton } from "../magicui/rainbowButton";
 
 export default function MeetButton() {
   useEffect(() => {
@@ -9,9 +10,9 @@ export default function MeetButton() {
       cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
     })();
   }, [])
-  return <button data-cal-namespace="15min"
+  return <RainbowButton variant="outline" className="py-3 px-6" data-cal-namespace="15min"
     data-cal-link="aashish-dubey-xatbxr/15min"
     
     data-cal-config='{"layout":"month_view"}'
-  >Book a meet</button>;
+  >Book a meet</RainbowButton>;
 };

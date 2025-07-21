@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     'devops engineer',
     'Next.js Developer',
   ],
+  icons: {
+    icon: '/favicon.ico',
+  },
   authors: [{ name: 'Aashish Dubey', url: '' }],
   openGraph: {
     title: 'Aashish Dubey | Backend Developer Portfolio',

@@ -12,7 +12,7 @@ export default function HeroSection() {
             <TextPressure minFontSize={36} text="Aashish Dubey" width={false} flex={true} alpha={false} stroke={false} weight={true} italic={true} className="text-4xl font-bold leading-none tracking-tighter text-white" />
             </div>
             <div className="flex gap-4 mt-4">
-            <RainbowButton variant="outline" className="py-3 px-6"> <MeetButton /> </RainbowButton>   
+            <MeetButton />   
             <RainbowButton variant="outline" className="py-3 px-6">
             Get in Touch
             </RainbowButton>   
