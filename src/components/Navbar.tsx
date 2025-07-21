@@ -2,7 +2,7 @@
 
 import { CalendarIcon, HomeIcon, MailIcon, PencilIcon,SunIcon,MoonIcon } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // import { ModeToggle } from "@/components/mode-toggle";
 import { buttonVariants } from "@/components/ui/button";
@@ -95,13 +95,35 @@ const DATA = {
 };
 
 export function Navbar() {
+  const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
 
-    const pathname = usePathname()
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div
+      className={cn(
+        "flex flex-col items-center justify-center z-50 w-auto",
+        "fixed top-2 left-1/2 -translate-x-1/2",
+        "mx-auto",
+      )}
+    >
       <TooltipProvider>
-        <Dock direction="middle" className="w-3xl h-12 bg-[#1A1B1B] border border-white/20 rounded-4xl">
+        <Dock
+          direction="middle"
+          className={cn(
+            // Compact, centered, responsive
+            "h-12 bg-[#1A1B1B] border border-white/20 rounded-4xl px-2 md:px-4",
+            isScrolled && "glass-navbar",
+            "transition-all duration-300 backdrop-blur-md"
+          )}
+        >
           {DATA.navbar.map((item) => (
             <DockIcon key={item.label}>
               <Tooltip>
