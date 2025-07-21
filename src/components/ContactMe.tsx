@@ -24,6 +24,7 @@ const contactMethods = [
 export default function ContactMe() {
   return (
     <motion.div
+      id="contact"
       className="mx-auto mt-10 flex flex-col items-center text-center"
       initial={{ filter: 'blur(10px)' }}
       animate={{ filter: 'blur(0px)' }}
