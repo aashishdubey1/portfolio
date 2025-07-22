@@ -2,9 +2,10 @@
 
 import { MagicCard } from '@/components/magicui/magic-card'
 import ShinyText from './blocks/TextAnimations/ShinyText/ShinyText';
+import { Project } from './ProjectList';
 
 
-const ProjectCard = (props: any) => {
+const ProjectCard = (props: Project) => {
     const { logo, title, description, techStack, link, source } = props;
     return (
         <MagicCard className='h-[300px] w-[300px] !border-none rounded-lg flex flex-col items-center justify-between p-4'>

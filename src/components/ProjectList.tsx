@@ -1,10 +1,6 @@
 'use client'
 
 import ProjectCard from './Projects';
-import { useState } from 'react';
-import { ChevronDownIcon } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-
 
 const ProjectList = () => {
 
@@ -31,7 +27,16 @@ const ProjectList = () => {
 
 export default ProjectList;
 
-const data: any = [
+export interface Project {
+  logo: string;
+  title: string;
+  description: string;
+  techStack: string[];
+  link: string;
+  source: string;
+}
+
+const data: Project[] = [
   {
     logo: "/globe.svg",
     title: "Global Weather App",
