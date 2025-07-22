@@ -1,5 +1,6 @@
 "use client";
 
+import { useIsHoverable } from "@/lib/useIsHoverable";
 import { cva, type VariantProps } from "class-variance-authority";
 import {
   motion,
@@ -44,6 +45,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     ref,
   ) => {
     const mouseX = useMotionValue(Infinity);
+    const isHoverable = useIsHoverable();
 
     const renderChildren = () => {
       return React.Children.map(children, (child) => {
@@ -66,8 +68,8 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     return (
       <motion.div
         ref={ref}
-        onMouseMove={(e) => mouseX.set(e.pageX)}
-        onMouseLeave={() => mouseX.set(Infinity)}
+        onMouseMove={isHoverable ? (e) => mouseX.set(e.pageX) : undefined}
+        onMouseLeave={isHoverable ? () => mouseX.set(Infinity) : undefined}
         {...props}
         className={cn(dockVariants({ className }), {
           "items-start": direction === "top",

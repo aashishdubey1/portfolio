@@ -8,7 +8,7 @@ export default function HeroSection() {
     return (
         <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden rounded-none border-0 bg-black">
             <SplitText text="Hi, I'm" className="text-4xl font-bold leading-none tracking-tighter text-white" />
-            <div className="h-[100px] w-[400px] relative mt-3">
+            <div className="h-[100px] w-[300px] md:h-[100px] md:w-[400px] relative mt-3">
             <TextPressure minFontSize={36} text="Aashish Dubey" width={false} flex={true} alpha={false} stroke={false} weight={true} italic={true} className="text-4xl font-bold leading-none tracking-tighter text-white" />
             </div>
             <div className="flex gap-4 mt-4">

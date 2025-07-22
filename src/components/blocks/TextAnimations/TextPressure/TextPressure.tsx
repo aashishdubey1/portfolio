@@ -87,7 +87,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchmove", handleTouchMove);
     };
-  }, []);
+  },);
 
   const setSize = () => {
     if (!containerRef.current || !titleRef.current) return;

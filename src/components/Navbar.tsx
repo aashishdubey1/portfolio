@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarIcon, HomeIcon, MailIcon, PencilIcon,SunIcon,MoonIcon } from "lucide-react";
+import { CalendarIcon, HomeIcon, MailIcon, PencilIcon,MoonIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -109,19 +109,22 @@ export function Navbar() {
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center z-50 w-auto",
+        "flex flex-col items-center justify-center z-50",
         "fixed top-2 left-1/2 -translate-x-1/2",
         "mx-auto",
+        "max-w-xs w-full"
       )}
     >
       <TooltipProvider>
         <Dock
           direction="middle"
           className={cn(
-            // Compact, centered, responsive
-            "h-12 bg-[#1A1B1B] border border-white/20 rounded-4xl px-2 md:px-4",
+            "h-10 px-1",
+            "md:h-12 md:px-4",
+            "bg-[#1A1B1B] border border-white/20 rounded-4xl",
             isScrolled && "glass-navbar",
-            "transition-all duration-300 backdrop-blur-md"
+            "transition-all duration-300 backdrop-blur-md",
+            "gap-0 md:gap-2"
           )}
         >
           {DATA.navbar.map((item) => (
@@ -135,12 +138,12 @@ export function Navbar() {
                     aria-label={item.label}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-10 rounded-full text-white",
+                      "size-8 md:size-10 rounded-full text-white", // smaller on mobile
                       pathname === item.href ? 'text-[#FFC83D]' : 'text-white',
                       `hover:bg-[#262626] ${pathname === item.href ? 'hover:text-[#FFC83D]' : 'hover:text-white'}`
                     )}
                   >
-                    <item.icon className="size-4" />
+                    <item.icon className="size-3 md:size-4" />
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -161,11 +164,11 @@ export function Navbar() {
                     aria-label={social.name}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-10 rounded-full text-white",
+                      "size-8 md:size-10 rounded-full text-white",
                       "hover:bg-[#262626] hover:text-[white]"
                     )}
                   >
-                    <social.icon className="size-4" />
+                    <social.icon className="size-3 md:size-4" />
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -178,7 +181,7 @@ export function Navbar() {
           <DockIcon>
             <Tooltip>
               <TooltipTrigger asChild>
-                <MoonIcon size={20} />
+                <MoonIcon size={16} className="md:size-5" />
               </TooltipTrigger>
               <TooltipContent>
                 <p>Theme</p>

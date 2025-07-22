@@ -3,13 +3,14 @@
 import { MagicCard } from '@/components/magicui/magic-card'
 import ShinyText from './blocks/TextAnimations/ShinyText/ShinyText';
 import { Project } from './ProjectList';
+import Image from 'next/image';
 
 
 const ProjectCard = (props: Project) => {
     const { logo, title, description, techStack, link, source } = props;
     return (
         <MagicCard className='h-[300px] w-[300px] !border-none rounded-lg flex flex-col items-center justify-between p-4'>
-            <img src={logo} alt={title} className="h-6 w-6 object-contain mb-2 mx-auto" />
+            <Image src={logo} alt={title} className="h-6 w-6 object-contain mb-2 mx-auto" width={6} height={6} />
             <h2 className="text-xl text-white font-bold text-center mb-2">{title}</h2>
             <ShinyText text={description} disabled={false} speed={3} className='mb-3 text-center '/>
             <div className="flex flex-wrap gap-1 justify-center mb-2">
