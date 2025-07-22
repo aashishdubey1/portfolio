@@ -5,7 +5,9 @@ import React from "react";
 import '@/app/globals.css'
 
 interface RainbowButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    asChild?: boolean;
+  }
 
 const rainbowButtonVariants = cva(
   cn(
