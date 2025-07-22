@@ -9,7 +9,7 @@ const ProjectList = () => {
       <h1 className='text-4xl font-bold text-white mb-10'>Proof of Work</h1>
 
       <div className="flex w-full flex-col gap-4 lg:flex-row mt-4 px-32 max-lg:px-0 max-sm:px-0 flex-wrap items-center ml-14 max-sm:ml-0 max-lg:ml-0 max-[350px]:mr-5 max-[321px]:mr-10">
-        {data.map((project: any, idx: number) => (
+        {data.map((project: Project, idx: number) => (
           <ProjectCard
             key={idx}
             logo={project.logo}
